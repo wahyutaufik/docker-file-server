@@ -1,0 +1,26 @@
+{
+    "name": "xinix/docker-file-server",
+    "version": "1.0.0",
+    "profile": "docker",
+
+    "docker": {
+        "containers": {
+            "fpm": {
+                "volumesFrom": [
+                    "nginx"
+                ]
+            },
+            "nginx": {
+                "ports": [
+                    "80:80"
+                ],
+                "links": [
+                    "fpm"
+                ],
+                "volumes": [
+                    "./srv:/srv"
+                ]
+            }
+        }
+    }
+}
